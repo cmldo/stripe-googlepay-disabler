@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Stripe GooglePay Disabler</string>
+    <string name="app_description">LSPosed module — forces Stripe\'s CustomerSheet googlePayEnabled() to always be false</string>
+
+    <!-- Scope hint: add the package name(s) of the app(s) that embed the Stripe SDK -->
+    <string-array name="xposed_scope">
+        <item>com.example.targetapp</item>
+    </string-array>
+</resources>
