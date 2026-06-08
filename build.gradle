@@ -2,3 +2,6 @@
 plugins {
     id 'com.android.application' version '8.3.2' apply false
 }
+dependencies {
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+}
