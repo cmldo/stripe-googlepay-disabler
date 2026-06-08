@@ -16,7 +16,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false   // Keep false: obfuscation breaks Xposed class/method lookup
+            minifyEnabled false
             signingConfig signingConfigs.debug
         }
     }
@@ -25,15 +25,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
-
-    // Strip unused resources to keep APK lean
-    androidResources {
-        ignoreAssetsPattern '!.svn:!.git:!.DS_Store'
-    }
 }
 
 dependencies {
-    // Xposed API stub — compile-time only, provided by LSPosed at runtime
-    compileOnly 'de.robv.android.xposed:api:82'
-    compileOnly 'de.robv.android.xposed:api:82:sources'
+    // Xposed API stub — generated at build time in CI (see .github/workflows/release.yml)
+    // For local development: run `./gradlew generateXposedStub` or place any api-XX.jar in app/libs/
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
 }
